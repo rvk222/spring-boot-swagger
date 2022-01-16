@@ -1,0 +1,41 @@
+
+server:
+   port: 9090
+
+spring:
+    mvc:
+      pathmatch:
+            matching-strategy: ant_path_matcher
+
+com:
+  bit:
+    wonders:
+      app:
+        version: 1.0
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+
+com:
+  bit:
+    wonders:
+      app:
+        message: "This is dev"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+
+com:
+  bit:
+    wonders:
+      app:
+        message: "Hello World from AZURE"
+
