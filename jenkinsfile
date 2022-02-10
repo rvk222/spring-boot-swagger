@@ -5,7 +5,7 @@ agent any
               steps {
                      git branch: 'main',
                      credentialsId: 'Github-username-password',
-                     url: 'https://github.com/mohankrishna1990/java.git'
+                     url: 'https://github.com/rvk222/spring-boot-swagger'
                   }
                 }
         	stage('SonarQube'){
