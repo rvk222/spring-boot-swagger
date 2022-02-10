@@ -1,38 +1,35 @@
-#pipeline {
-#agent any
- # 		stages {
-  #      	stage('Clone sources') {
-   #           steps {
-    #                 git branch: 'main',
-     #                credentialsId: 'Github-username-password',
-      #               url: 'https://github.com/rvk222/spring-boot-swagger.git'
-       #           }
-        #        }
-        #	stage('SonarQube'){
-         #   	steps {
-          #          script{
-           #             withSonarQubeEnv('SonarQube analysis'){
-            #                //def mavenImage = docker.image('openjdk:11')
-             #               //mavenImage.inside() 
-              #              //{
-               #                 bat "mvn clean verify sonar:sonar -Dsonar.projectKey=Java -Dsonar.host.url=http://localhost:9000 -Dsonar.login=34d7a895a4e0200f905fb1171d9f85c97fdad0cc"
-                #          // bat "mvn clean verify sonar:sonar -Dsonar.projectKey=spring-boot-swagger -Dsonar.host.url=http://localhost:9000 -Dsonar.login=34d7a895a4e0200f905fb1171d9f85c97fdad0cc"
- #}
-  #                      }
-   #                // }
-    #                }
-     #             }
-      #          }
-       #     }
+pipeline {
+agent any
+ 		stages {
+        	stage('Clone sources') {
+              steps {
+                     git branch: 'main',
+                     credentialsId: 'Github-username-password',
+                     url: 'https://github.com/rvk222/spring-boot-swagger.git'
+                  }
+                }
+        	stage('SonarQube'){
+            	steps {
+                    script{
+                       withSonarQubeEnv('SonarQube analysis'){
+                            //def mavenImage = docker.image('openjdk:11')
+                            //mavenImage.inside() 
+                            //{
+                               bat "mvn clean verify sonar:sonar -Dsonar.projectKey=vk -Dsonar.host.url=http://localhost:9000 -Dsonar.login=7ab007f1a972d9cc11fabee017a95645acca50ff"
+                          // bat "mvn clean verify sonar:sonar -Dsonar.projectKey=spring-boot-swagger -Dsonar.host.url=http://localhost:9000 -Dsonar.login=34d7a895a4e0200f905fb1171d9f85c97fdad0cc"
+ }
+                       }
+                   // }
+                    }
+                }
+                }
+            }
 #-------------------------------------------------------
 
-node {
-  stage('SCM') {
-    git 'https://github.com/rvk222/spring-boot-swagger.git'
-  }
-  stage('SonarQube analysis') {
-    withSonarQubeEnv(credentialsId: '34d7a895a4e0200f905fb1171d9f85c97fdad0cc', installationName: 'My SonarQube Server') { // You can override the credential to be used
-      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
-    }
-  }
-}
+#node {
+  #stage('SCM')# {
+    #withSonarQubeEnv(credentialsId: '34d7a895a4e0200f905fb1171d9f85c97fdad0cc', installationName: 'My SonarQube Server') { // You can override the credential to be used
+      #sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+    #}
+ # }
+#}
