@@ -8,10 +8,10 @@ agent any
                      url: 'https://github.com/rvk222/spring-boot-swagger.git'
                   }
                 }
-        	stage('SonarQube'){
+        	stage('SonarQube Scanner'){
             	steps {
                     script{
-                       withSonarQubeEnv('SonarQube analysis'){
+                       withSonarQubeEnv('SonarQube'){
                             //def mavenImage = docker.image('openjdk:11')
                             //mavenImage.inside() 
                             //{
