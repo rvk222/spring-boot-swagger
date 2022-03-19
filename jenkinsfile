@@ -17,11 +17,8 @@ agent any
                     script{
                        withSonarQubeEnv('SonarQube') 
                             {
-                               bat "mvn clean verify sonar:sonar -Dsonar.projectKey=vk -Dsonar.host.url=http://localhost:9000 -Dsonar.login=7ab007f1a972d9cc11fabee017a95645acca50ff"
-                          // bat "mvn clean verify sonar:sonar -Dsonar.projectKey=spring-boot-swagger -Dsonar.host.url=http://localhost:9000 -Dsonar.login=34d7a895a4e0200f905fb1171d9f85c97fdad0cc"
- }
-                       }
-                   // }
+                               bat "mvn clean verify sonar:sonar-Dsonar.projectKey=java-Dsonar.host.url=http://localhost:9000-Dsonar.login=81ec4c415accb84af6bc61f94fdbb52a0ed5db72"
+                          
                     }
                 }
                 }
