@@ -1,27 +1,28 @@
 pipeline {
-agent any 
- tools{
- maven 'Maven'
- jdk 'java'
- }
- 		stages {
-        	stage('Clone sources') {
-              steps {
+         agent any 
+             tools{
+             maven 'Maven'
+             jdk 'java'
+                }
+ 		     stages {
+        	      stage('Clone sources') {
+                   steps {
                      git branch: 'main',
                      credentialsId: 'Github-username-password',
                      url: 'https://github.com/rvk222/spring-boot-swagger.git'
-                  }
-                }
-        	stage('SonarQube Scanner'){
-            	steps {
-                    script{
-                       withSonarQubeEnv('SonarQube') 
-                            {
+                       }
+                   }
+              	stage('SonarQube Scanner'){
+                    steps {
+                            script{
+                            withSonarQubeEnv('SonarQube') 
+                               {
                                bat "mvn clean verify sonar:sonar-Dsonar.projectKey=java-Dsonar.host.url=http://localhost:9000-Dsonar.login=81ec4c415accb84af6bc61f94fdbb52a0ed5db72"
-                             }
-                  }
-              }
-      }
-  }
+                               }
+                            }
+                        }
+                   }
+           }
+   }
 
 
