@@ -18,10 +18,10 @@ agent any
                        withSonarQubeEnv('SonarQube') 
                             {
                                bat "mvn clean verify sonar:sonar-Dsonar.projectKey=java-Dsonar.host.url=http://localhost:9000-Dsonar.login=81ec4c415accb84af6bc61f94fdbb52a0ed5db72"
-                          
-                    }
-                }
-                }
-            }
+                             }
+                  }
+              }
+      }
+  }
 
 
