@@ -9,7 +9,7 @@ pipeline {
                    steps {
                      git branch: 'main',
                      credentialsId: 'Github-username-password',
-                     url: 'https://github.com/rvk222/spring-boot-swagger.git'
+                     url:'https://github.com/rvk222/spring-boot-swagger.git'
                        }
                    }
               	stage('SonarQube Scanner'){
