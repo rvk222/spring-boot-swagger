@@ -17,7 +17,7 @@ pipeline {
                             script{
                             withSonarQubeEnv('SonarQube') 
                                {
-                             bat" mvn clean verify sonar:sonar
+                             bat "mvn clean verify sonar:sonar
                                 -Dsonar.projectKey=local
                                 -Dsonar.host.url=http://localhost:9000
                                 -Dsonar.login=170b4e71f029de373cdf547ead1c00831b7b63e0"
